@@ -1,0 +1,90 @@
+<main class="py-3">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 pt-2">
+                <div class="card">
+                    <div class="card-header">
+                        Статус заявки 
+                        <a href="https://vk.com/im?sel=-191498125" target="_blank">
+                            <span class="float-right badge badge-pill badge-success clients-feedback-span">Написать в поддержку</span>
+                        </a>
+                    </div>
+                    <div class="card-body order">
+                        
+                        {{#if trade.buy }}
+                            {{> order_buy }}
+                        {{/if}}
+
+                        {{#if trade.sell }}
+                            {{> order_sell }}
+                        {{/if}}
+
+                        <div class="table-overflow">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <th>Номер транзакции</th>
+                                        <th>{{ _id }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Текущий статус</th>
+                                        <th>
+                                            <span class="badge badge-pill badge-warning">{{ status }}</span>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>Отправитель</th>
+                                        <th>
+                                            <a href="https://vk.com/id{{ vk.from }}" target="_blank">
+                                                <span class="d-none d-md-inline">https://vk.com/id</span>{{ vk.from }}
+                                            </a>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>Получатель</th>
+                                        <th>
+                                            <a href="https://vk.com/id{{ vk.to }}" target="_blank">
+                                                <span class="d-none d-md-inline">https://vk.com/id</span>{{ vk.to }}
+                                            </a>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>Количество</th>
+                                        <th>
+                                            {{ amount }}<span class="DesktopContainer__coin smallcoin"></span>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>Курс обмена</th>
+                                        <th>
+                                            <b>1 000 000</b>
+                                            <span class="DesktopContainer__coin smallcoin"></span>
+                                            - <b id="sellRateInfo">{{ exchangeRate }}</b>
+                                            руб
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <th>Тип сделки</th>
+                                        <th>{{ trade.tip }} VK Coin</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Qiwi отправителя</th>
+                                        <th>{{ qiwi.from }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Qiwi получателя</th>
+                                        <th>{{ qiwi.to }}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Время обновления</th>
+                                        <th>{{ date }}</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

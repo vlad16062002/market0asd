@@ -1,0 +1,192 @@
+{{> navbar }}
+
+<main class="py-3">     
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 order-md-1">
+                <div class="card">
+                    <div class="card-header">Coin Market <span class="d-md-inline"> - автоматическая покупка/продажа ваших коинов</span> <span class="float-right"><button
+                                    class="btn badge badge-light" id="refreshInfo"><img src="/img/reload.png" class="reload-img" alt=""></button></span></div>
+                    <div class="container-fluid card-body">
+                        <div class="row justify-content-center align-items-center text-center">
+                            <div class="col-12 col-md-auto">Покупка: <b>1 000 000</b> <span class="DesktopContainer__coin smallcoin"></span> - <b id="buyRateInfo">{{ buy }}</b>руб</div>
+                            <div class="col-12 col-md-auto mt-1 mt-md-0">Продажа: <b>1 000 000</b> <span class="DesktopContainer__coin smallcoin"></span> - <b id="sellRateInfo">{{ sell }}</b>руб</div>
+                            <div class="col-12 col-md-auto mt-1 mt-md-0">Резерв: <b class="mutation-elems" id="reserveInfo">{{ reserve }}</b> <span class="DesktopContainer__coin smallcoin"></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 pt-4 order-md-2">
+                <div class="card">
+                    <div class="card-header buysellcardheader">
+                        <ul class="nav nav-pills justify-content-center" id="pills-tab" role="tablist">
+                            <li class="nav-item pr-1">
+                                <div class="nav-link navbsrounded active " id="pills-buy-tab" data-toggle="pill" href="" role="tab" aria-controls="pills-buy" aria-selected="true">Купить VK Coins</div>
+                            </li>
+                            <li class="nav-item pl-1">
+                                <div class="nav-link navbsrounded" id="pills-sell-tab" data-toggle="pill" href="" role="tab" aria-controls="pills-sell" aria-selected="false">Продать VK Coins</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="tab-content" id="pills-tabContent">
+                            <div class="tab-pane fade show active" id="pills-buy" role="tabpanel" aria-labelledby="pills-buy-tab">
+                                <div class="card-body nopad">
+
+                                    <div class="form-row">
+                                        <div class="form-group col-lg-6">
+                                            <label for="inputEmail4">Ваш id страницы вконтакте <a href="http://regvk.com/id/" target="_blank">узнать тут</a></label>
+                                            <input type="number" class="form-control id-buy-input" placeholder="id цифрами (ссылки не принимаются)" value="">
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="inputState">Количество VK Coin</label>
+                                            <div class="input-group mb-2 mr-sm-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><span class="DesktopContainer__coin"></span></div>
+                                                </div>
+                                                <input type="number" class="form-control text-right amount-buy-coins" placeholder="Количество коинов" min="0" max="{{ reserve }}" step="1000000" value="">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">.000</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="offset-0 col-12">
+                                            Вы получите <span><b class="buyResultAmountCoins mutation-elems">0</b>
+                                                <span class="DesktopContainer__coin smallcoin"></span> </span> за <span><b class="buyResultAmountPrice">0</b>руб</span>
+                                        </div>
+                                        <div class="form-group col-lg-12 pt-3">
+                                            <button type="submit" class="btn btn-primary float-right w-100" id="buyModalBtn" data-toggle="modal" data-target="#buyModal">Купить</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="pills-sell" role="tabpanel" aria-labelledby="pills-sell-tab">
+                                <div class="card-body nopad">
+
+                                    <div class="form-row">
+                                        <div class="form-group col-lg-6">
+                                            <label for="inputEmail4">Ваш id страницы вконтакте <a href="http://regvk.com/id/" target="_blank">узнать тут</a></label>
+                                            <input type="number" class="form-control id-sell-input" placeholder="id цифрами (ссылки не принимаются)" value="">
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="inputState">Количество VK Coin</label>
+                                            <div class="input-group mb-2 mr-sm-2">
+                                                <div class="input-group-prepend">
+                                                    <div class="input-group-text"><span class="DesktopContainer__coin"></span></div>
+                                                </div>
+                                                <input type="number" class="form-control text-right amount-sell-coins" placeholder="Количество коинов" min="0" step="1000" value="">
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text">.000</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label for="inputEmail4">Ваш Qiwi кошелек для получения средств</label>
+                                            <input type="text" class="form-control sell-qiwi-phone" placeholder="Ваш qiwi кошелек без +" value="">
+                                        </div>
+                                        <div class="col-12 col-lg-6">
+                                            Вы продаете <span><b class="sellResultAmountCoins">0</b>
+                                                <span class="DesktopContainer__coin smallcoin"></span> </span> за <span><b class="sellResultAmountPrice">0</b>руб</span>
+                                        </div>
+                                        <div class="form-group col-lg-12 pt-3">
+                                            <button type="submit" class="btn btn-primary float-right w-100" id="sellModalBtn" data-toggle="modal" data-target="#sellModal">Продать</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+{{> history}}
+
+            <div class="col-12 col-lg-8 pt-4 order-md-4">
+                <div class="card">
+    <div class="card-header">Немного статистики</div>
+    <div class="card-body">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center text-center">
+                <small class="col-12">За сегодня:</small>
+                <div class="col-12 col-md-auto mt-1 mt-md-0">Довольных клиентов: <b>0</b> <span class="DesktopContainer__image users smallcoin"></span></div>
+                <div class="col-12 col-md-auto">Успешных сделок: <b>{{ countSuccessDealToday }}</b> <span class="DesktopContainer__image transfer smallcoin"></span></div>
+                <div class="col-12 col-md-auto mt-1 mt-md-0">Оборот: <b>0,000</b> <span class="DesktopContainer__coin smallcoin"></span></div>
+            </div>
+            <div class="row justify-content-center align-items-center text-center pt-2">
+                <small class="col-12">За все время:</small>
+                <div class="col-12 col-md-auto mt-1 mt-md-0">Довольных клиентов: <b>0</b> <span class="DesktopContainer__image users smallcoin"></span></div>
+                <div class="col-12 col-md-auto">Успешных сделок: <b>{{ countSuccessDealAll }}</b> <span class="DesktopContainer__image transfer smallcoin"></span></div>
+                <div class="col-12 col-md-auto mt-1 mt-md-0">Оборот: <b>0,000</b> <span class="DesktopContainer__coin smallcoin"></span></div>
+            </div>
+        </div>
+    </div>
+</div>            </div>
+            <div class="col-lg-8 pt-3 text-center order-md-5">
+                <small>made by <a href="https://vk.com/ysenpi">ysenpi</a></small>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal buy -->
+    <div class="modal fade" id="buyModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="buyModalCenterTitle">Покупка VK Coins</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal sell -->
+    <div class="modal fade" id="sellModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Продажа VK Coins</h5>
+                    <button type="button" class="close modal-close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center text-center">
+                        <div class="col-12">
+                            <p>Искользуйте код: </p>
+                            <div class="sell-qr">
+                                <img class="sell-qr-img" src="" alt="qrcode">
+                            </div>
+                            <small>Скан работает только через камеру вконтакте.<br> (Перейдите на вкладку новостей, сделайте свайп слева-направо или же нажмите на кнопку камеры в левом верхнем углу. Наведите камеру на
+                                код. Готово!)
+                            </small>
+                        </div>
+                        <div class="col-12 pt-3">
+                            <p>Или перейдите по ссылке: </p>
+                            <a class="sell-coin-url" href="" target="_blank"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <a href="#" class="btn btn-primary check-sell-link" target="_blank">Проверить статус</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div class="modal-backdrop fade"></div>

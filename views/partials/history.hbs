@@ -1,0 +1,22 @@
+<div class="col-12 col-lg-8 pt-4 order-md-4">
+    <div class="card">
+        <div class="card-header">История <a href="https://vk.com/topic-191498125_40906836" target="_blank"><span class="float-right badge badge-pill badge-primary clients-feedback-span">Отзывы</span></a></div>
+        <div class="card-body">
+            <div class="form-row">
+                <table class="table table-sm table-borderless table-hover">
+                    <tbody>
+                        {{#each orders}}
+                            <tr>
+                                <td><span class="d-md-inline">{{ created_at }}</span></td>
+                                <td><span class="d-md-inline">id{{ from_id }}</td>
+                                <td><span class="badge badge-{{ trade.cl }}"><span class="d-md-inline">{{ trade.tip }}</span></span></td>
+                                <td><span class="d-md-inline">{{ amount }} </span><span class="d-md-inline"><span class="DesktopContainer__coin smallcoin"></span></span>
+                                </td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

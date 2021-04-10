@@ -1,0 +1,159 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #f8fafc;
+/*	font-family: -apple-system, Roboto, Helvetica Neue, Arial, sans-serif;
+	font-size: .9rem;
+	font-weight: 400;
+	line-height: 1.6;
+	color: #212529;*/
+}
+
+.logo {
+	width: 50px;
+	height: 50px;
+}
+
+.badge-light {
+	background-color: transparent;
+}
+
+.reload-img {
+	height: 15px;
+	/*background-color: #fff;
+	border-radius: 50%;*/
+}
+
+#pills-buy-tab, #pills-sell-tab {
+	user-select: none;
+	cursor: pointer;
+}
+
+.modal-backdrop {
+	display: none;
+}
+
+.active {
+	display: block;
+	opacity: 1 !important;
+}
+
+.modal-show {
+	display: block !important;
+	opacity: .5 !important;
+}
+
+.sell-coin-url {
+	margin-top: 10px;
+}
+
+.DesktopContainer__coin {
+    display: inline-block;
+    background-image: url('/svg/vk_coin.svg');
+    width: 23px;
+    height: 23px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin-left: 1px;
+    vertical-align: -4px;
+}
+
+.DesktopContainer__catcoin {
+    display: inline-block;
+    background-image: url('/img/catcoinicon.png');
+    width: 23px;
+    height: 23px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin-left: 1px;
+    vertical-align: -4px;
+}
+
+.DesktopContainer__image {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    margin-left: 1px;
+    vertical-align: -4px;
+}
+
+.DesktopContainer__image.transfer {
+    background-image: url('/svg/transfer.svg');
+    width: 17px;
+    height: 15px;
+    vertical-align: -4px;
+}
+.DesktopContainer__image.users {
+    background-image: url('/svg/users.svg');
+    height: 12px;
+    width: 18px;
+    vertical-align: -1px;
+}
+/*
+.text-align-right {
+	text-align: end;
+}*/
+
+td {
+	text-align: center;
+}
+
+/*a {
+	text-decoration: none;
+    background-color: transparent;
+}*/
+
+/*.wrap {
+	max-width: 600px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 15px;
+}*/
+
+
+/*.navbar {
+	background-color: #343a40;
+	color: #fff;
+	box-shadow: 0 2px 4px rgba(0,0,0,.04);
+	padding: 15px;
+}
+
+.navbar-brand {
+	display: flex;
+	align-items: center;
+	color: #fff;
+	font-size: 16px;
+}
+
+.logo {
+	height: 50px;
+}
+
+.card {
+	background-color: #fff;
+	background-clip: border-box;
+	border: 1px solid #dee2e6;
+	border-radius: 0.5rem;
+}
+
+.card-header {
+	padding: 10px;
+}
+
+.card-body {
+	padding: 10px;
+}
+
+.card-header-content {
+	font-size: 1.25rem;
+}
+.card-body-content {}*/

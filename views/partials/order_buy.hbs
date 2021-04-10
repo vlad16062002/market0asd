@@ -1,0 +1,30 @@
+<table class="table pb-5">
+<tbody>
+<tr>
+    <td>К оплате:</td>
+    <td>{{ price }} &nbsp;&#8381;</td>
+</tr>
+<tr>
+    <td>На кошелек:</td>
+    <td>
+        <b>+{{ qiwi.to }}</b>
+    </td>
+</tr>
+<tr>
+    <td>Комментарий к платежу:</td>
+    <td>
+        <b>{{ comment }}</b>
+    </td>
+</tr>
+<tr>
+    <td colspan="2">
+        <small>
+            <b>Внимание!</b>
+            Если вы отказываетесь от перевода автоматической оплатой, обязательно указывайте комментарий к платежу <b>{{ comment }}</b>
+            - иначе коины не будут зачислены.
+        </small>
+    </td>
+</tr>
+</tbody>
+</table>
+<p class="text-center"><a class="btn btn-success" href="{{ link }}">Перейти к автоматической оплате</a></p>
